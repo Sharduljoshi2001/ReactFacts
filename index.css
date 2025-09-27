@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+}
+
+/* THEME TOGGLE FEATURE: CSS Custom Properties for theming */
+:root {
+    /* Dark theme (default) - Original colors converted to CSS variables */
+    --bg-primary: #282D35;    /* Main background color */
+    --bg-secondary: #21222A;  /* Header background color */
+    --text-primary: white;    /* Main text color */
+    --text-accent: #61DAFB;   /* React blue accent color */
+    --shadow: rgba(0, 0, 0, 0.3); /* Shadow for dark theme */
+}
+
+/* THEME TOGGLE FEATURE: Light theme colors override when data-theme="light" */
+[data-theme="light"] {
+    /* Light theme - New color palette for light mode */
+    --bg-primary: #f5f5f5;    /* Light gray background */
+    --bg-secondary: #ffffff;  /* White header background */
+    --text-primary: #333333;  /* Dark gray text */
+    --text-accent: #0066cc;   /* Blue accent for light theme */
+    --shadow: rgba(0, 0, 0, 0.1); /* Subtle shadow for light theme */
+}
+
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    /* THEME TOGGLE FEATURE: Changed from hardcoded colors to CSS variables */
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    /* THEME TOGGLE FEATURE: Smooth transition when switching themes */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+    height: 90px;
+    /* THEME TOGGLE FEATURE: Changed from hardcoded #21222A to CSS variable */
+    background-color: var(--bg-secondary);
+    padding: 30px 25px;
+    /* THEME TOGGLE FEATURE: Added subtle shadow that adapts to theme */
+    box-shadow: 0 2px 10px var(--shadow);
+    /* THEME TOGGLE FEATURE: Smooth transition when switching themes */
+    transition: background-color 0.3s ease;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    /* THEME TOGGLE FEATURE: Changed from 'center' to 'space-between' to make room for toggle button */
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* THEME TOGGLE FEATURE: New wrapper for logo and brand text */
+.nav-brand {
+    display: flex;
+    align-items: center;
+}
+
+nav img {
+    width: 40px;
+    margin-right: 7px;
+}
+
+/* THEME TOGGLE FEATURE: Changed selector and added CSS variable for color */
+nav .brand-text {
+    color: var(--text-accent);
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* THEME TOGGLE FEATURE: Styles for the new theme toggle button */
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--text-accent);
+    color: var(--text-accent);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* THEME TOGGLE FEATURE: Hover effect for theme toggle button */
+.theme-toggle:hover {
+    background-color: var(--text-accent);
+    color: var(--bg-secondary);
+    transform: translateY(-1px); /* Subtle lift effect */
+}
+
+main {
+    padding: 60px 30px;
+    background-image: url(/images/react-logo-half.png);
+    background-repeat: no-repeat;
+    background-position: right 70%;
+}
+
+main > h1 {
+    margin: 0;
+    font-size: 2.4rem;
+}
+
+.facts-list {
+    margin-top: 46px;
+    max-width: 400px;
+}
+
+.facts-list > li {
+    padding-block: 10px;
+    line-height: 19px;
+}
+
+.facts-list > li::marker {
+    /* THEME TOGGLE FEATURE: Changed from hardcoded #61DAFB to CSS variable */
+    color: var(--text-accent);
+    font-size: 1.5rem;
+}
